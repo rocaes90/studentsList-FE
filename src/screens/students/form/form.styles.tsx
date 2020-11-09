@@ -1,15 +1,25 @@
 import { makeStyles, StyleRules, Theme } from '@material-ui/core'
+import { Colors } from 'config'
+
 
 const useStyles = makeStyles(
   (theme: Theme): StyleRules => ({
     formContainer: {
       display: 'flex',
-      width: '100%',
-      height: '100vh',
-      [theme.breakpoints.up('md')]: {
-        overflow: 'hidden',
-      }
+      flexDirection: 'column',
+      width: '40%',
+      minWidth: '400px',
+      backgroundColor: Colors.athensGray,
     },
+    inputForm: {
+      backgroundColor: Colors.white,
+      marginTop: theme.spacing(2),
+      textAlign: 'left'
+    },
+    title: {
+      color: Colors.black,
+      margin: theme.spacing(1)
+    }
   }),
 )
 

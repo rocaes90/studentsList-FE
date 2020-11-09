@@ -14,7 +14,7 @@ export const initialState: IStudentState = {
   form: {
     name: '',
     lastname: '',
-    level: 0,
+    level: 1,
     address: ''
   }
 }

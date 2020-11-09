@@ -4,10 +4,10 @@ import React, { ReactElement } from 'react'
 import ReactDOM from 'react-dom';
 import { StoreProvider } from 'easy-peasy'
 
-import './index.css';
-import App from './App';
+import './index.css'
+import App from './App'
 import store from './store'
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals'
 
 function Root(): ReactElement {
   return (

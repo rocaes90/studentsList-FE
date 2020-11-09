@@ -1,6 +1,5 @@
-import { thunk, Thunk } from 'easy-peasy'
+import { thunk, Thunk, thunkOn, ThunkOn } from 'easy-peasy'
 
-import { AppStoreModel } from 'store'
 import { IStudent, IInjections, IGetStudentsResponse } from 'types'
 
 import { StudentsModel } from './model'
@@ -15,7 +14,8 @@ export interface IThunks {
     StudentsModel,
     IStudent,
     IInjections
-  >
+  >,
+  onCreateStudentUpdateStudentsList: ThunkOn<StudentsModel, IInjections>
 }
 
 const thunks: IThunks = {
@@ -44,14 +44,29 @@ const thunks: IThunks = {
       { injections },
     ): Promise<void> => {
       try {
-        const test: any = await injections.createStudent(payload)
-        console.log('test', test)
+        await injections.createStudent(payload)
+        actions.clearStudentsForm()
       } catch (e) {
         console.log('error', e)
       } finally {
         actions.updateStudentsState({ isLoading: false })
       }
     },
-  )
+  ), 
+  onCreateStudentUpdateStudentsList: thunkOn(
+    (actions, storeActions) => actions.createStudent,
+    async (actions) => {
+      try{
+        actions.updateStudentsState({ isLoading: true })
+        actions.getStudents()
+      }
+      catch(error) {
+        console.log('error', error)
+      }
+      finally{
+        actions.updateStudentsState({ isLoading: false })
+      }
+    },
+  ),
 }
 export default thunks

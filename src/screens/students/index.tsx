@@ -13,13 +13,10 @@ function Students() {
 
   const { list, isLoading } = useStudents()
 
-  console.log('list', list)
-  console.log('isLoading', isLoading)
-
   return (
     <Box className={classes.studentsContainer}>
       <Form />
-      <StudentsList />
+      <StudentsList list={list} isLoading={isLoading} />
     </Box>
   )
 }

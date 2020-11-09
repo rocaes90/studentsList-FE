@@ -1,5 +1,4 @@
 import * as students from './students'
-
-export default {
-  ...students
-}
+ 
+/* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
+export default { ...students } 

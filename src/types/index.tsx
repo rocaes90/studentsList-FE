@@ -1,12 +1,8 @@
-import { Note } from './INote'
-import { AppContext } from './IAppContext'
 import { Student, StudentState, GetStudentsResponse } from './IStudent'
 import { Helpers, Injections } from './IStoreConfig'
 import { APIResponse, APIResponseList } from './IAPIResponse'
 import { OnChangeInputProps } from './IForm'
-
-export type INote = Note
-export type IAppContext = AppContext
+import { SelectListOption } from './ISelectListOption'
 
 export type IAPIResponse<T> = APIResponse<T>
 export type IAPIResponseList = APIResponseList
@@ -16,3 +12,4 @@ export type IStudent = Student
 export type IStudentState = StudentState
 export type IGetStudentsResponse = GetStudentsResponse
 export type IOnChangeInputProps = OnChangeInputProps
+export type ISelectListOption = SelectListOption

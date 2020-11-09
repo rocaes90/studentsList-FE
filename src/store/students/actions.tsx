@@ -6,18 +6,10 @@ import { initialState, StudentsModel } from './model'
 
 export interface IActions {
   resetStore: Action<StudentsModel>
-  updateStudentsState: Action<
-    StudentsModel, 
-    Partial<IStudentState>
-  >
-  updateStudentsList: Action<
-    StudentsModel, 
-    Partial<IStudentState['items']>
-  >
-  updateStudentsForm: Action<
-    StudentsModel, 
-    Partial<IStudent>
-  >
+  updateStudentsState: Action<StudentsModel, Partial<IStudentState>>
+  updateStudentsList: Action<StudentsModel, Partial<IStudentState['items']>>
+  updateStudentsForm: Action<StudentsModel, Partial<IStudent>>
+  clearStudentsForm: Action<StudentsModel>
 }
 
 const actions: IActions = {
@@ -38,6 +30,12 @@ const actions: IActions = {
     form: {
       ...state.form,
       ...payload,
+    },
+  })),
+  clearStudentsForm: action((state, payload) => ({
+    ...state,
+    form: {
+      ...initialState.form
     },
   })),
 }

@@ -1,7 +1,6 @@
 import {
   IStudent,
   IAPIResponse,
-  IAPIResponseList,
   IGetStudentsResponse,
 } from 'types'
 
